@@ -12,5 +12,8 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../CloudFlareUtilities/CloudFlareUtilities/CloudFlareUtilities.csproj"/>
+  </ItemGroup>
 
 </Project>

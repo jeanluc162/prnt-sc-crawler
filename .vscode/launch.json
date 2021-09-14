@@ -10,8 +10,8 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/bin/Debug/net5.0/prnt-sc-crawler.dll",
-            "args": ["sleep=0", "output=/home/jean-luc/Bilder/prnt-sc", "threads=4"],
+            "program": "${workspaceFolder}/crawler/bin/Debug/net5.0/prnt-sc-crawler.dll",
+            "args": ["sleep=1000", "output=/home/jean-luc/prnt-sc", "threads=1"],
             "cwd": "${workspaceFolder}",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",

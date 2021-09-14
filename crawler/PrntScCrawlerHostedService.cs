@@ -11,13 +11,15 @@ namespace prnt_sc_crawler
 {
     internal sealed class PrntScCrawlerHostedService : IHostedService
     {
+        private const String SearchString="<a href=\"http://www.google.com/searchbyimage?image_url=";
+        
         private const String ScUrlBase = "https://prnt.sc";
         private HttpClient httpClient;
         private IConfiguration configuration;
         private CancellationTokenSource cancellationTokenSource;
         public PrntScCrawlerHostedService(IConfiguration configuration)
         {
-            httpClient = new HttpClient();
+            httpClient = new HttpClient(new CloudFlareUtilities.ClearanceHandler());
             this.configuration = configuration;
         }
         public async Task StartAsync(CancellationToken cancellationToken)
@@ -77,8 +79,7 @@ namespace prnt_sc_crawler
 
                 if(Website != null)
                 {
-                    Website = Website.Substring(Website.IndexOf("id=\"screenshot-image\""));
-                    Website = Website.Substring(Website.IndexOf("src=\"") + 5);
+                    Website = Website.Substring(Website.IndexOf(SearchString) + SearchString.Length);
                     Website = Website.Substring(0, Website.IndexOf("\""));
                 }
 
